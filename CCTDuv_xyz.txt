@@ -1,0 +1,12 @@
+cieobs = '1964_10'
+
+CCT = 3000
+Duv = 0
+Lum = 100
+
+#xyzw_D65A_ohno = lx.cct_to_xyz(cct_ohno, duv = duv_ohno,
+#                               cieobs = '1964_10', mode = 'lut') 
+xyzt_cct_test_scaled = lx.cct_to_xyz(CCT, Duv) #, cieobs = cieobs, cct_offset = None) #relative(scaled)
+xyzt_cct_test = Lum*xyzt_cct_test_scaled #relative to absolute
+Yxyt_cct_test = lx.xyz_to_Yxy(xyzt_cct_test) 
+print(xyzt_cct_test_scaled, xyzt_cct_test, Yxyt_cct_test)
